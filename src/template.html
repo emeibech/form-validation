@@ -7,6 +7,26 @@
   <title>Form Validation</title>
 </head>
 <body>
-  <h1>Form Validation</h1>
+  <div class="content">
+    <form action="" novalidate>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email">
+      <label for="country">Country</label>
+      <select name="country" id="country">
+        <option value="United States">United States</option>
+        <option value="Canada">Canada</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Australia">Australia</option>
+        <option value="New Zealand">New Zealand</option>
+      </select>
+      <label for="zipcode">Zip code</label>
+      <input type="text" name="zipcode" id="zipcode">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password">
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" name="confirm-password" id="confirm-password">
+      <button>Submit</button>
+    </form>
+  </div>
 </body>
 </html>
