@@ -37,6 +37,14 @@ input {
   color: rgb(30, 30, 30);
 }
 
+input.valid {
+  border: 1px solid turquoise;
+}
+
+input.invalid {
+  border: 1px solid firebrick;
+}
+
 label {
   color: rgb(240, 240, 240);
 }
@@ -76,4 +84,8 @@ button:hover {
 
 button:active {
   background-color: rgb(149, 198, 218);
+}
+
+.error {
+  color: aliceblue;
 }

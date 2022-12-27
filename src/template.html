@@ -10,7 +10,8 @@
   <div class="content">
     <form action="" novalidate>
       <label for="email">Email</label>
-      <input type="email" name="email" id="email" required>
+      <input type="email" name="email" id="email" minlength="8" required>
+      <span class="error" aria-live="polite" data-email></span>
       <label for="country">Country</label>
       <select name="country" id="country">
         <option value="United States">United States</option>
@@ -21,10 +22,13 @@
       </select>
       <label for="zipcode">Zip code</label>
       <input type="text" name="zipcode" id="zipcode" required>
+      <span class="error" aria-live="polite" data-zip></span>
       <label for="password">Password</label>
       <input type="password" name="password" id="password" required>
+      <span class="error" aria-live="polite" data-password></span>
       <label for="confirm-password">Confirm Password</label>
       <input type="password" name="confirm-password" id="confirm-password" required>
+      <span class="error" aria-live="polite" data-confirm></span>
       <button>Submit</button>
     </form>
   </div>
