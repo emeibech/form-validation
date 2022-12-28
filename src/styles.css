@@ -31,6 +31,7 @@ form {
 
 label {
   margin-top: 1rem;
+  color: rgb(240, 240, 240);
 }
 
 input {
@@ -45,8 +46,8 @@ input.invalid {
   border: 1px solid firebrick;
 }
 
-label {
-  color: rgb(240, 240, 240);
+select {
+  cursor: pointer;
 }
 
 input,

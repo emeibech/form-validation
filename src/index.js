@@ -1,6 +1,7 @@
 import './styles.css';
-import { validateEmail } from './modules/formValidation';
+import { validateZip, validateEmail } from './modules/formValidation';
 
 document.addEventListener('DOMContentLoaded', () => {
+  validateZip();
   validateEmail();
 });
