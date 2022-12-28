@@ -17,11 +17,11 @@ const validateEmail = () => {
     emailError.className = 'error active';
 
     if (email.validity.valueMissing) {
-      emailError.textContent = 'Please enter your email address';
+      emailError.textContent = 'Please enter your email address.';
     } else if (email.validity.typeMismatch) {
-      emailError.textContent = 'That is not a valid email address';
+      emailError.textContent = 'That is not a valid email address.';
     } else if (email.validity.tooShort) {
-      emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
+      emailError.textContent = `Email should be at least ${email.minLength} characters. You entered ${email.value.length}.`;
     }
   };
 
@@ -83,10 +83,11 @@ const validateZip = () => {
   showError.zip = () => {
     zip.className = 'invalid';
     zipError.className = 'error active';
+
     if (zip.validity.valueMissing) {
-      zipError.textContent = 'Please enter your zip code';
+      zipError.textContent = 'Please enter your zip code.';
     } else if (zip.validity.patternMismatch) {
-      zipError.textContent = 'Please enter a valid zip code';
+      zipError.textContent = 'Please enter a valid zip code.';
     }
   };
 
@@ -103,6 +104,7 @@ const validateZip = () => {
 
   selectCountry();
   zip.addEventListener('blur', testZip);
+
   form.addEventListener('submit', (e) => {
     if (!zip.validity.valid) {
       showError.zip();
@@ -112,7 +114,77 @@ const validateZip = () => {
   });
 };
 
+const validatePassword = () => {
+  showError.password = () => {
+    password.className = 'invalid';
+    passwordError.className = 'error active';
+
+    if (password.validity.valueMissing) {
+      passwordError.textContent = 'Please enter a password.';
+    } else if (password.validity.tooShort) {
+      passwordError.textContent = `Password is too short. Please enter at least ${password.minLength} characters.`;
+    }
+  };
+
+  const testPassword = () => {
+    if (password.validity.valid) {
+      passwordError.textContent = '';
+      passwordError.className = 'error';
+      password.className = 'valid';
+    } else {
+      showError.password();
+      password.addEventListener('input', testPassword);
+    }
+  };
+
+  password.addEventListener('blur', testPassword);
+
+  form.addEventListener('submit', (e) => {
+    if (!password.validity.valid) {
+      showError.password();
+      e.preventDefault();
+      password.addEventListener('input', testPassword);
+    }
+  });
+};
+
+const confirmPassword = () => {
+  showError.confirm = () => {
+    confirm.className = 'invalid';
+    confirmError.className = 'error active';
+
+    if (confirm.validity.valueMissing) {
+      confirmError.textContent = 'Please type in your password again.';
+    } else if (password.value !== confirm.value) {
+      confirmError.textContent = 'You entered a different password.';
+    }
+  };
+
+  const testConfirm = () => {
+    if (password.validity.valid && password.value === confirm.value) {
+      confirmError.textContent = '';
+      confirmError.className = 'error';
+      confirm.className = 'valid';
+    } else {
+      showError.confirm();
+      confirm.addEventListener('input', testConfirm);
+    }
+  };
+
+  confirm.addEventListener('blur', testConfirm);
+
+  form.addEventListener('submit', (e) => {
+    if (!confirm.validity.valid || password.value !== confirm.value) {
+      showError.confirm();
+      e.preventDefault();
+      confirm.addEventListener('input', testConfirm);
+    }
+  });
+};
+
 export {
   validateEmail,
   validateZip,
+  validatePassword,
+  confirmPassword,
 };

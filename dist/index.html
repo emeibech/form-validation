@@ -5,12 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Validation</title>
-<script defer src="main.fd83eacd4f0269fc8dee.js"></script></head>
+<script defer src="main.7c7e5717666f97cfe08d.js"></script></head>
 <body>
   <div class="content">
     <form action="" novalidate>
       <label for="email">Email</label>
-      <input type="email" name="email" id="email" minlength="8" required>
+      <input type="email" name="email" id="email" minlength="8" placeholder="example@email.com" required>
       <span class="error" aria-live="polite" data-email></span>
       <label for="country">Country</label>
       <select name="country" id="country">
@@ -24,7 +24,7 @@
       <input type="text" name="zipcode" id="zipcode" required>
       <span class="error" aria-live="polite" data-zip></span>
       <label for="password">Password</label>
-      <input type="password" name="password" id="password" required>
+      <input type="password" name="password" id="password" minlength="8" placeholder="8 characters minimum" required>
       <span class="error" aria-live="polite" data-password></span>
       <label for="confirm-password">Confirm Password</label>
       <input type="password" name="confirm-password" id="confirm-password" required>
